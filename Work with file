@@ -1,0 +1,100 @@
+import java.awt.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class main6 {
+	 public static void main(String args[]) {
+		 String line = "абвгдеёжзийклмнопрстуфхцчшщъьыэюя"; 
+		 String [] line1 = {"а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н",
+				 "о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ь","ы","э","ю","я"};
+				 String www = null;
+	       Scanner l = new Scanner(System.in);
+	       System.out.println("Введите строку:");
+	       if (l.hasNext()) {
+	           www = l.nextLine();
+	       }
+	       int h =0;
+	       StringBuffer q = new StringBuffer(www);
+	       for (int v = 0; v < q.length(); v++){ 
+	    	   if(q.charAt(v) == ' ') { 
+	    	   h++;
+	    	   }
+	    	   
+	       }
+		 int summ = 0; 
+		 String textStr = www; 
+
+	
+		 try(FileWriter writer = new FileWriter("D:\\red1.txt",false)){ //создание файла с произвольными символами 
+		 int gen = 0; 
+		 for (int a = 0; a < q.length()-h; a++){ 
+		 gen = (int)(Math.random()*100); 
+		 writer.append((char)(gen)); 
+		 summ += gen; 
+		 } 
+		 writer.flush(); 
+		 } catch (IOException ex) { 
+		 System.out.print(ex.getMessage()); 
+		 }  
+		 StringBuffer sb = new StringBuffer(); 
+		 try(FileReader reader = new FileReader("D:\\red1.txt")){ 
+		 int c = 0, i = 0; 
+			 while ((c = reader.read()) != -1){ // считываем весь файл с таблицей 
+			 sb.insert(i,(char)(c)); 
+			 i++; 
+			 } 
+			 }
+			 catch (IOException ex) { 
+			 System.out.print(ex.getMessage()); 
+			 } 
+		 StringBuffer str1 = new StringBuffer(sb); 
+		 int t=0;
+		 int k=0;
+		 int y=0;
+				 ArrayList<String> list = new ArrayList<String>();
+				 int num = 0;
+				 int f = 0;
+				 for (int c = 0; c < q.length(); c++){ 
+			//q я ввел
+		    //sb c файла
+			 	 k=0; 
+			 	 if(q.charAt(c) != ' ') {	 			
+			 		t = (int) sb.charAt(f);
+					num = 33 - line.indexOf( q.charAt(c));
+					k=t+num;
+					String str = Integer.toString(k);
+					list.add(str);
+					f++;
+			 	 }	
+		 }
+				 String listString = "";
+				 for ( String s : list)
+				 {
+				     listString += s+" ";
+				 }
+				 System.out.println(listString);
+				 String[] li = listString.split(" ");
+				 System.out.println("Расшифровка:");
+				 int mon =0;
+				 int you = 0;
+				 String ing = "";
+				 ArrayList<String> lak = new ArrayList<String>();
+				 String ls = "";
+				  for(int i = 0; i < li.length; i++){
+					  ing = li[i];
+					  you = (int) sb.charAt(i)+33 - Integer.parseInt(ing);
+					  String sak = line1[you];
+					  lak.add(sak);
+					  sak = "";					   
+				  }
+					  for ( String s : lak)
+						 {
+						     ls += s+" ";
+						 }
+					  System.out.println(ls);
+	 }
+}
