@@ -1,0 +1,66 @@
+import java.util.Arrays;
+import java.util.Scanner;
+public class main {
+
+	//ДЕШИФРОВКА
+	
+	
+	   public static void main(String args[]) {
+		   String sa ="";
+		   String ca="";
+	       String resulta= "";
+	       String ula;
+	     
+	       Scanner ina = new Scanner(System.in); 
+	       System.out.print("Ведите 2 числа: "); 
+	       int a = ina.nextInt()-1; 
+	       int b = ina.nextInt()-1; 
+	      
+	       String wwwa = null;
+	       Scanner la = new Scanner(System.in);
+	       System.out.println("Введите строку:");
+	       if (la.hasNext()) {
+	           wwwa = la.nextLine();
+	       }
+	       ina.close(); 
+	       la.close(); 
+	       
+	       String[] linea = wwwa.split(" ");
+	     
+	      // String[] line = "1234 12345 123456 1234567 12345678 123456789".split(" ");
+	       String pola ="";
+	    
+	       for(int o = 0; o < linea.length; o++){
+	    	   ca = linea[o];
+	 
+	    	   
+	        	   char[] leta = ca.toCharArray();
+	               char[] lettersa = ca.toCharArray();
+	        	    lettersa[a] = leta[b];
+	        	    lettersa[b] = leta[a];
+	        	    ula = String.valueOf(lettersa) ;
+	        	    pola += ula;
+	        	    ula ="";
+	        	    pola += " ";
+	          
+	       }
+	      
+	       String[] resa = pola.split(" ");
+	       
+	       for(int i = 0; i < resa.length; i++){
+	    	   sa = "";
+	    	   sa = resa[i];
+	    	   
+	    	 
+	           for (int p = sa.length() - 1; p >= 0; p--)
+	           {
+	        	  
+	               resulta += sa.substring(p, p+1); 
+	               
+	           }
+	           resulta += " ";
+	       }
+	       System.out.println(resulta);
+		   
+	   }  
+	}
