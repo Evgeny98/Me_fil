@@ -1,1 +1,83 @@
-efwfwe
+import java.util.Scanner;
+
+public class main7 {
+	 public static void main(String args[]) {
+		 String line = "абвгдеёжзийклмнопрстуфхцчшщъьыэюя";	 	 
+		 String [] line1 = {"а","б","в","г","д","е","ё","ж","з","и","й","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ","ъ","ь","ы","э","ю","я"};
+		 String www = null;
+	       Scanner l = new Scanner(System.in);
+	       System.out.println("Введите строку:");
+	       if (l.hasNext()) {
+	           www = l.nextLine();
+	       }
+	       int h =0;
+	       StringBuffer q = new StringBuffer(www);
+	    	   String[] li = {"а","б","в","г","д"};
+	    	   String ing = "";
+	    	   String ingg = "";
+	    	   String in = "";
+	    	   String inn = "";
+	    	   int you = 0;
+	    	   int w = 0;
+	    	   int ww = 0;
+	    	   int n = 0;
+	    	   int nn = 0;
+	    	   int k = 0;
+	    	   int kk = 0;
+	    	   String pp = " ";
+		    		   for(int ii = 0; ii <= q.length()-1; ii++){
+		    			   if(q.charAt(ii) == ' ') {
+		    				   in+=" ";
+		    			   }
+		    			   
+		    			   if(q.charAt(ii) !=  ' ') {
+		    			  // if(k==5) {k=0; n++;}
+		    			   if(n==5) { n=0;}
+		    			   //if(k<5) {	   
+		    	   ing = li[n];
+	    		   you =  line.indexOf(ing)+1; 
+	    		   w = line.indexOf( q.charAt(ii))+ you;
+	    		   //k++;
+	    		   n++;
+		    			  // }else
+		    			  // {
+		    				//   k=0;
+		    				//  n++; 
+		    			  // }
+		    			   if(n==5) {
+		    				   n=0;   
+		    			   }	 
+		    			   in+=line1[w];
+	    	 } 			   	    			      		   	    		   
+		    		   }
+	    		   
+		    		   System.out.println(in);
+		    		   System.out.println("Расшифровка");
+		    		   for(int ii = 0; ii <= in.length()-1; ii++){
+		    			   if(in.charAt(ii) == ' ') {
+		    				   inn+=" ";
+		    			   }
+		    			   
+		    			   if(in.charAt(ii) !=  ' ') {
+		    			   if(kk==5) {kk=0; nn++;}
+		    			   if(nn==5) { nn=0;}
+		    			  // if(kk<5) {	   
+		    	   ingg = li[nn];
+	    		   you =  line.indexOf(ingg); 
+	    		   ww = line.indexOf( in.charAt(ii))- you-1;
+	    		 // kk++;
+	    		   nn++;
+		    			   ///}else
+		    			  // {
+		    				//   kk=0;
+		    				//  nn++; 
+		    			  // }
+		    			   if(nn==5) {
+		    				   nn=0;   
+		    			   }	 
+		    			   inn+=line1[ww];
+	    	 } 	
+		    		   }
+		    		   System.out.println(inn);	    		   
+}}
+
