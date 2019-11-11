@@ -1,0 +1,72 @@
+import java.util.Scanner; 
+import java.io.*; 
+import java.util.Arrays;
+public class mainer { 
+	 public static void main(String args[]) {
+		 String str1 = ""; 
+		 String str2 = ""; 
+		 try(FileReader reader = new FileReader("D:\\red.txt")){ 
+			 StringBuffer sb = new StringBuffer(); 
+			 int c = 0, i = 0; 
+			 while ((c = reader.read()) != -1){ // считываем весь файл с таблицей 
+			 sb.insert(i,(char)(c)); 
+			 i++; 
+			 } 
+			 str1 = sb.substring(0,42); // разделяем считаннаю таблицу 
+			 str2 = sb.substring(44,86); 
+			 }
+			 catch (IOException ex) { 
+			 System.out.print(ex.getMessage()); 
+			 } 
+		   String www = null;
+	       Scanner l = new Scanner(System.in);
+	       System.out.println("Введите строку:");
+	       if (l.hasNext()) {
+	           www = l.nextLine();
+	       }   
+		String s = "";
+		char r;
+		String result=""; 
+		String res=""; 
+	       String[] line = www.split(" ");
+	      for(int i = 0; i < line.length; i++){
+	    	   s = line[i];
+	    	   StringBuffer q = new StringBuffer(s); 
+	    	   for (int t = 0; t < 3; t++){
+	    	   for (int g = 0; g < str1.length(); g++){ 
+					 if(q.charAt(q.length()-1-t) == str1.charAt(g)) { 
+							q.setCharAt(q.length()-1-t, str2.charAt(g));
+							break;
+						 }
+	      }} 
+	           System.out.print(q);
+	           System.out.print(' ');  
+	       }
+	      String ss = "";
+	      System.out.print("\n");   
+	      String wwwa = null;
+	       Scanner la = new Scanner(System.in);
+	       System.out.println("Введите строку:");
+	       if (la.hasNext()) {
+	           wwwa = la.nextLine();
+	       } 
+	       la.close();
+	       l.close();  
+	       String [] linea = wwwa.split(" ");
+	      for(int ii = 0; ii < linea.length; ii++){
+	    	   ss = linea[ii];
+	    	   StringBuffer q = new StringBuffer(ss);  
+	    	   for (int t = 0; t < 3; t++){
+		    	   for (int g = 0; g < str2.length(); g++){ 
+						 if(q.charAt(q.length()-1-t) == str2.charAt(g)) { 
+								q.setCharAt(q.length()-1-t, str1.charAt(g));
+								break;
+						 }
+		      }} 
+	           System.out.print(q);
+	           System.out.print(' ');
+	       }
+	 }	 
+}
+
+ 
